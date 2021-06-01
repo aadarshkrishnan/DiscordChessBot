@@ -4,7 +4,7 @@ import random
 
 bot = commands.Bot(command_prefix= '!')
 
-@bot.command(name = "idea")
+@bot.command(name = "idea", help = "Get a random side project idea")
 async def idea(ctx):
     await ctx.send("Ideas are hard")
     
@@ -13,6 +13,16 @@ async def idea(ctx):
     idea = f'Create an new {random.choice(topics)} that helps with {random.choice(areas)} :slight_smile:'
     await ctx.send(idea)
 
+@bot.command(name = "calc", help = "Do a two number calculation where fn is +, -, /, *")
+async def calc(ctx, x: float, fn: str, y: float):
+    if fn == '+':
+        await ctx.send(x + y)
+    elif fn == '-':
+        await ctx.send(x - y)
+    elif fn == '/':
+        await ctx.send(x / y)
+    elif fn == '*':
+        await ctx.send(x * y)
 
 with open("BOT_TOKEN.txt", "r") as token_file:
     TOKEN = token_file.read()
