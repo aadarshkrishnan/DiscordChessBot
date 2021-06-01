@@ -13,7 +13,7 @@ async def idea(ctx):
     idea = f'Create an new {random.choice(topics)} that helps with {random.choice(areas)} :slight_smile:'
     await ctx.send(idea)
 
-@bot.command(name = "calc", help = "Do a two number calculation where fn is +, -, /, *")
+@bot.command(name = "calc", help = "Do a two number calculation where fn is +, -, /, *, **")
 async def calc(ctx, x: float, fn: str, y: float):
     if fn == '+':
         await ctx.send(x + y)
@@ -23,6 +23,8 @@ async def calc(ctx, x: float, fn: str, y: float):
         await ctx.send(x / y)
     elif fn == '*':
         await ctx.send(x * y)
+    elif fn == '**':
+        await ctx.send(x ** y)
 
 with open("BOT_TOKEN.txt", "r") as token_file:
     TOKEN = token_file.read()
