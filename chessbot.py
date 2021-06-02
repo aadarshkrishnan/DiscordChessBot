@@ -17,6 +17,7 @@ async def calculate_fen(ctx, *fen_notation):
     info = engine.analyse(board, chess.engine.Limit(depth=20))
     information = str(info["pv"])
     await ctx.send(information[16:20])
+    engine.quit()
     
 
 #@bot.command(name="calculate_pgn")
